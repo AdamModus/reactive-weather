@@ -1,0 +1,3 @@
+Containers are "pages"
+
+In this folder we can have page components that the react router points to
