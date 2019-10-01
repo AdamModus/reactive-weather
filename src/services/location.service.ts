@@ -8,8 +8,8 @@ const GEOLOCATION_OPTIONS = {
   maximumAge: 3000
 };
 
-function getCurrentBrowserGeolocation(options) {
-  return new Promise(function(resolve, reject) {
+function getCurrentBrowserGeolocation(options?: any) {
+  return new Promise<Position>(function(resolve, reject) {
     navigator.geolocation.getCurrentPosition(
       resolve,
       reject,

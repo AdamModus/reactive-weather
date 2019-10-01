@@ -1,17 +1,17 @@
-import TextField from "@material-ui/core/TextField";
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import actions from "./../../state/actions/index";
-import "./LocationInput.css";
+import TextField from '@material-ui/core/TextField';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from './../../state/actions/index';
+import './LocationInput.css';
 
 class LocationInput extends Component {
   componentDidMount() {
     this.props.getBrowserLocation();
-    console.log("componentDidMount", this);
+    console.log('componentDidMount', this);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log("componentDidUpdate,", this.props);
+    console.log('componentDidUpdate,', this.props);
   }
 
   render() {
@@ -30,17 +30,9 @@ class LocationInput extends Component {
   }
 }
 
-// const mapStateToProps = ({ state }) => ({
-//   state
-// });
-
 const mapStateToProps = state => {
   return state;
 };
-
-function mapState(state) {
-  return state;
-}
 
 const mapDispatchToProps = {
   ...actions
