@@ -1,7 +1,7 @@
 import { ActionTypes, LocationActionTypes } from '../../constants';
-import { Location } from '../types/location.types';
+import { ILocationState } from '../types/location.types';
 
-const initialState: Location = {
+const initialState: ILocationState = {
   coordinates: {
     latitude: undefined,
     longitude: undefined
@@ -9,7 +9,7 @@ const initialState: Location = {
 };
 
 export function getBrowserLocationSuccess(
-  newLocation: Location
+  newLocation: ILocationState
 ): LocationActionTypes {
   return {
     type: ActionTypes.GET_BROWSER_LOCATION_SUCCESS,
@@ -26,11 +26,9 @@ export default function LocationReducer(
     case ActionTypes.GET_BROWSER_LOCATION_SUCCESS:
       return {
         ...state,
-        location: {
-          coordinates: {
-            latitude: payload.coordinates.latitude,
-            longitude: payload.coordinates.longitude
-          }
+        coordinates: {
+          latitude: payload.coordinates.latitude,
+          longitude: payload.coordinates.longitude
         },
         status: 'success'
       };

@@ -1,11 +1,11 @@
 import { ActionTypes } from '../../constants';
 import locationService from '../../services/location.service';
-import { Location } from '../types/location.types';
+import { ILocationState } from '../types/location.types';
 
 export const getBrowserLocation = () => async (dispatch: Function) => {
   try {
     const currentBrowserLocation: Position = await locationService.getCurrentBrowserGeolocation();
-    const currentLocation: Location = {
+    const currentLocation: ILocationState = {
       coordinates: {
         latitude: currentBrowserLocation.coords.latitude,
         longitude: currentBrowserLocation.coords.longitude
@@ -24,6 +24,9 @@ export const getBrowserLocation = () => async (dispatch: Function) => {
 };
 
 export const locationUpdated = () => async (dispatch: Function) => {
-  // const currentLocation = await locationService.getCurrentBrowserGeolocation();
-  return dispatch({ type: ActionTypes.UPDATE_LOCATION, payload: 'Amsterdam' });
+  const currentLocation = await locationService.getCurrentBrowserGeolocation();
+  return dispatch({
+    type: ActionTypes.UPDATE_LOCATION,
+    payload: currentLocation
+  });
 };

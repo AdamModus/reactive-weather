@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import CurrentWeather from "../CurrentWeather/CurrentWeather";
-import LocationInput from "../LocationInout/LocationInput";
-import WeatherPrediction from "../WeatherPrediction/WeatherPrediction";
-import UnitPicker from "../UnitPicker/UnitPicker";
-import "./App.css";
+import React, { Component } from 'react';
+import CurrentWeather from '../CurrentWeather/CurrentWeather';
+import LocationInput from '../LocationInput/LocationInput';
+import UnitPicker from '../UnitPicker/UnitPicker';
+import WeatherPrediction from '../WeatherPrediction/WeatherPrediction';
+import './App.css';
 
 class App extends Component {
   render() {

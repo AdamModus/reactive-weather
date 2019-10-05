@@ -1,4 +1,4 @@
-import { Location } from './state/types/location.types';
+import { ILocationState } from './state/types/location.types';
 
 export const ActionTypes = {
   GET_BROWSER_LOCATION_SUCCESS: 'GET_BROWSER_LOCATION_SUCCESS',
@@ -8,17 +8,17 @@ export const ActionTypes = {
 
 interface getBrowserLocationSuccess {
   type: typeof ActionTypes.GET_BROWSER_LOCATION_SUCCESS;
-  payload: Location;
+  payload: ILocationState;
 }
 
 interface getBrowserLocationFailed {
   type: typeof ActionTypes.GET_BROWSER_LOCATION_FAILED;
-  payload: Location;
+  payload: ILocationState;
 }
 
 interface updateLocation {
   type: typeof ActionTypes.UPDATE_LOCATION;
-  payload: Location;
+  payload: ILocationState;
 }
 
 export type LocationActionTypes =
