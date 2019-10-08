@@ -1,4 +1,5 @@
 export * from './location.types';
+export * from './temperature-unit.types';
 
 // location {
 //     coordinates: {

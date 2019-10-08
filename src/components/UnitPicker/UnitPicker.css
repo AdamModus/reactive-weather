@@ -1,0 +1,21 @@
+/* label {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border: solid 2px red;
+}
+
+input[type="radio"] {
+  display: none;
+}
+*/
+.unit-picker_group .unit-picker_radio:checked + label {
+  border: solid 2px green;
+  font-weight: bolder;
+}
+
+.unit-picker_group .unit-picker_radio {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}

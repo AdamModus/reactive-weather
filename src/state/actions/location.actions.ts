@@ -1,14 +1,13 @@
 import { ActionTypes } from '../../constants';
 import locationService from '../../services/location.service';
-import { ILocationState } from '../types/location.types';
 
 export const getBrowserLocation = () => async (dispatch: Function) => {
   try {
-    const currentBrowserLocation: Position = await locationService.getCurrentBrowserGeolocation();
-    const currentLocation: ILocationState = {
+    const currentBrowserCoords: Position = await locationService.getCurrentBrowserGeolocation();
+    const currentLocation = {
       coordinates: {
-        latitude: currentBrowserLocation.coords.latitude,
-        longitude: currentBrowserLocation.coords.longitude
+        latitude: currentBrowserCoords.coords.latitude,
+        longitude: currentBrowserCoords.coords.longitude
       }
     };
     return dispatch({

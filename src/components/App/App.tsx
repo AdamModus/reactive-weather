@@ -9,8 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <UnitPicker />
         <LocationInput />
+        <UnitPicker />
         <CurrentWeather />
         <WeatherPrediction />
       </div>
