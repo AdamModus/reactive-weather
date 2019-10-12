@@ -1,5 +1,6 @@
+export * from './forecast.types';
 export * from './location.types';
-export * from './temperature-unit.types';
+export * from './temperature.types';
 
 // location {
 //     coordinates: {

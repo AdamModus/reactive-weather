@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../state/actions';
 import { IStoreState } from '../../state/reducers';
-import { ITemperatureUnitState } from '../../state/types/temperature-unit.types';
+import { ITemperatureUnitState } from '../../state/types/temperature.types';
 import './UnitPicker.css';
 
 interface OwnProps {}

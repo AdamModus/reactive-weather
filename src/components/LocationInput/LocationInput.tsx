@@ -3,7 +3,6 @@ import React, { Component, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../state/actions/index';
 import { IStoreState } from '../../state/reducers';
-import store from './../../state/store/store';
 import './LocationInput.css';
 
 interface OwnProps {}
@@ -19,6 +18,7 @@ interface StateProps {
 
 interface DispatchProps {
   getBrowserLocation: Function;
+  setCity: Function;
 }
 
 type Props = OwnProps & DispatchProps & StateProps;
@@ -28,34 +28,18 @@ interface State {
 }
 
 class LocationInput extends Component<Props, State> {
-  private locationSelector = (state: IStoreState) => {
-    return state.location;
-  };
-
   constructor(props: Props) {
     super(props);
     this.state = { currentValue: '' };
-    store.subscribe(this.storeUpdated);
   }
 
   componentDidMount() {
     this.props.getBrowserLocation();
   }
 
-  private storeUpdated = () => {
-    const currState = store.getState();
-    console.log('------------------------------------');
-    console.log('bananas store updated', this.locationSelector(currState));
-    console.log('------------------------------------');
-    // https://eu1.locationiq.com/v1/reverse.php?key=c1063b39ddd9f7&lat=51.9830918&lon=5.900858899999999&format=json
-    // https://samples.openweathermap.org/data/2.5/weather?q=Arnhem&appid=b6907d289e10d714a6e88b30761fae22
-  };
-
   private onSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    console.log('------------------------------------');
-    console.log('bananas', this.state.currentValue);
-    console.log('------------------------------------');
+    this.props.setCity({ city: this.state.currentValue });
   };
 
   private onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {

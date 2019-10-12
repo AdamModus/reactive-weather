@@ -5,17 +5,10 @@ const initialState: ILocationState = {
   coordinates: {
     latitude: undefined,
     longitude: undefined
-  }
+  },
+  city: undefined,
+  countryCode: undefined
 };
-
-export function getBrowserLocationSuccess(
-  newLocation: ILocationState
-): LocationActionTypes {
-  return {
-    type: ActionTypes.GET_BROWSER_LOCATION_SUCCESS,
-    payload: newLocation
-  };
-}
 
 export default function LocationReducer(
   state = initialState,
@@ -35,6 +28,24 @@ export default function LocationReducer(
     case ActionTypes.GET_BROWSER_LOCATION_FAILED:
       return {
         ...state,
+        coordinates: {
+          latitude: undefined,
+          longitude: undefined
+        },
+        status: 'failed'
+      };
+    case ActionTypes.UPDATE_CITY_AND_COUNTRY_SUCCESS:
+      return {
+        ...state,
+        city: payload.city,
+        countryCode: payload.countryCode,
+        status: 'success'
+      };
+    case ActionTypes.UPDATE_CITY_AND_COUNTRY_FAILURE:
+      return {
+        ...state,
+        city: undefined,
+        countryCode: undefined,
         status: 'failed'
       };
     default:
